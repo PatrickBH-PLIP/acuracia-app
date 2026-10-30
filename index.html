@@ -187,7 +187,9 @@ nav.tabbar button.active{color:var(--accent);}
     border-bottom:3px solid #111;padding-bottom:8px;margin-bottom:14px;}
   .pr-title{font-family:Arial,Helvetica,sans-serif;font-size:25px;font-weight:800;
     letter-spacing:-.4px;margin:0;color:#17202b;}
-  .pr-kicker{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a66b00;margin-bottom:5px;}
+  .pr-kicker-row{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-bottom:5px;}
+  .pr-kicker{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a66b00;margin:0;white-space:nowrap;}
+  .pr-authors{font-family:Arial,Helvetica,sans-serif;font-size:7.5px;font-weight:800;color:#17365d;text-align:right;white-space:nowrap;margin-left:auto;}
   .pr-meta{font-size:9px;color:#647080;margin-top:5px;}
   .pr-sub{font-size:11px;color:#555;margin-top:2px;font-family:Georgia,serif;}
   .pr-date{font-family:'Courier New',monospace;font-size:15px;font-weight:700;text-align:right;}
@@ -847,8 +849,11 @@ function buildPrintHTML(){
 
   return `
     <div class="pr-header">
-      <div>
-        <div class="pr-kicker">Controle operacional • Estoque</div>
+      <div class="pr-heading-main">
+        <div class="pr-kicker-row">
+          <div class="pr-kicker">Controle operacional • Estoque</div>
+          <div class="pr-authors">DESENVOLVIDO POR PATRICK BRAUN E MARSON MATHEUS</div>
+        </div>
         <p class="pr-title">Relatório de Acurácia</p>
         <p class="pr-sub">Conferência física de materiais</p>
         <div class="pr-meta">Documento de acompanhamento interno</div>
@@ -874,7 +879,7 @@ function buildPrintHTML(){
       ⚠️ Ajustado: divergência identificada e ajustada no sistema de estoque.<br>
       ❓ Sem cadastro: item sem cadastro adequado no sistema; ocorrência sinalizada.
     </div>
-    <div class="pr-footer"><span>DESENVOLVIDO POR <strong>PATRICK BRAUN</strong> E <strong>MARSON MATHEUS</strong></span><span>Gerado em ${geradoEm}</span></div>
+    <div class="pr-footer"><span>Gerado em ${geradoEm}</span></div>
   `;
 }
 
