@@ -187,6 +187,7 @@ nav.tabbar button.active{color:var(--accent);}
     border-bottom:3px solid #111;padding-bottom:8px;margin-bottom:14px;}
   .pr-title{font-family:Arial,Helvetica,sans-serif;font-size:25px;font-weight:800;
     letter-spacing:-.4px;margin:0;color:#17202b;}
+  .pr-generated{font-family:Arial,Helvetica,sans-serif;font-size:8px;color:#647080;margin:0 0 5px;text-align:left;}
   .pr-kicker-row{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-bottom:5px;}
   .pr-kicker{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a66b00;margin:0;white-space:nowrap;}
   .pr-authors{font-family:Arial,Helvetica,sans-serif;font-size:7.5px;font-weight:800;color:#17365d;text-align:right;white-space:nowrap;margin-left:auto;}
@@ -224,14 +225,6 @@ nav.tabbar button.active{color:var(--accent);}
   .pr-resumo .pr-lbl{font-size:7px;text-transform:uppercase;letter-spacing:.35px;color:#596579;
     display:block;margin-top:3px;}
   .pr-section-title{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#475467;margin:12px 0 7px;}
-  .pr-footer{position:fixed;left:0;right:0;bottom:-11mm;box-sizing:border-box;
-    font-size:8px;color:#17365d !important;text-align:center;margin:0;padding:5px 0 0;
-    border-top:1px solid #d7e0eb;background:#fff !important;
-    font-family:Arial,Helvetica,sans-serif;display:flex !important;justify-content:space-between;gap:12px;visibility:visible !important;z-index:9999;}
-  .pr-footer, .pr-footer *{visibility:visible !important;color:#17365d !important;}
-  .pr-footer strong{color:#17365d;font-weight:800;}
-  .pr-footer span:first-child{color:#17365d;font-weight:700;}
-
 
 }
 </style>
@@ -850,6 +843,7 @@ function buildPrintHTML(){
   return `
     <div class="pr-header">
       <div class="pr-heading-main">
+        <div class="pr-generated">Gerado em ${geradoEm}</div>
         <div class="pr-kicker-row">
           <div class="pr-kicker">Controle operacional • Estoque</div>
           <div class="pr-authors">DESENVOLVIDO POR PATRICK BRAUN E MARSON MATHEUS</div>
@@ -879,7 +873,6 @@ function buildPrintHTML(){
       ⚠️ Ajustado: divergência identificada e ajustada no sistema de estoque.<br>
       ❓ Sem cadastro: item sem cadastro adequado no sistema; ocorrência sinalizada.
     </div>
-    <div class="pr-footer"><span>Gerado em ${geradoEm}</span></div>
   `;
 }
 
