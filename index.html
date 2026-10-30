@@ -170,14 +170,15 @@ nav.tabbar button.active{color:var(--accent);}
 #printArea{display:none;}
 
 @media print{
-  @page{ margin:14mm 12mm 22mm; }
+  @page{ margin:8mm 12mm 16mm; }
   html,body{background:#fff !important;background-color:#fff !important;color:#111 !important;
     margin:0 !important;padding:0 !important;min-height:0 !important;
     -webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  body{display:block !important;min-height:0 !important;height:auto !important;}
   body *{visibility:hidden;}
   #printArea, #printArea *{visibility:visible;}
-  header,nav.tabbar,.actionbar,.modal-bg,.toast{display:none !important;}
-  #printArea{display:block !important;position:static !important;top:auto;left:auto;
+  header,main,nav.tabbar,.actionbar,.modal-bg,.toast{display:none !important;}
+  #printArea{display:block !important;position:relative !important;top:auto;left:auto;
     width:100% !important;min-height:0 !important;margin:0 !important;padding:0 !important;
     background:#fff !important;background-color:#fff !important;color:#111 !important;
     box-sizing:border-box;}
@@ -221,10 +222,11 @@ nav.tabbar button.active{color:var(--accent);}
   .pr-resumo .pr-lbl{font-size:7px;text-transform:uppercase;letter-spacing:.35px;color:#596579;
     display:block;margin-top:3px;}
   .pr-section-title{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#475467;margin:12px 0 7px;}
-  .pr-footer{position:fixed;left:0;right:0;bottom:-15mm;box-sizing:border-box;
-    font-size:8px;color:#647080;text-align:center;margin:0;padding:7px 0 0;
+  .pr-footer{position:fixed;left:0;right:0;bottom:-11mm;box-sizing:border-box;
+    font-size:8px;color:#17365d !important;text-align:center;margin:0;padding:5px 0 0;
     border-top:1px solid #d7e0eb;background:#fff !important;
-    font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:space-between;gap:12px;}
+    font-family:Arial,Helvetica,sans-serif;display:flex !important;justify-content:space-between;gap:12px;visibility:visible !important;z-index:9999;}
+  .pr-footer, .pr-footer *{visibility:visible !important;color:#17365d !important;}
   .pr-footer strong{color:#17365d;font-weight:800;}
   .pr-footer span:first-child{color:#17365d;font-weight:700;}
 
