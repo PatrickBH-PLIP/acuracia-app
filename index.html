@@ -170,11 +170,17 @@ nav.tabbar button.active{color:var(--accent);}
 #printArea{display:none;}
 
 @media print{
-  @page{ margin:14mm 12mm; }
+  @page{ margin:14mm 12mm 22mm; }
+  html,body{background:#fff !important;background-color:#fff !important;color:#111 !important;
+    margin:0 !important;padding:0 !important;min-height:0 !important;
+    -webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
   body *{visibility:hidden;}
   #printArea, #printArea *{visibility:visible;}
   header,nav.tabbar,.actionbar,.modal-bg,.toast{display:none !important;}
-  #printArea{display:block !important;position:absolute;top:0;left:0;width:100%;background:#fff;color:#111;}
+  #printArea{display:block !important;position:static !important;top:auto;left:auto;
+    width:100% !important;min-height:0 !important;margin:0 !important;padding:0 !important;
+    background:#fff !important;background-color:#fff !important;color:#111 !important;
+    box-sizing:border-box;}
 
   .pr-header{display:flex;justify-content:space-between;align-items:flex-end;
     border-bottom:3px solid #111;padding-bottom:8px;margin-bottom:14px;}
@@ -215,8 +221,12 @@ nav.tabbar button.active{color:var(--accent);}
   .pr-resumo .pr-lbl{font-size:7px;text-transform:uppercase;letter-spacing:.35px;color:#596579;
     display:block;margin-top:3px;}
   .pr-section-title{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#475467;margin:12px 0 7px;}
-  .pr-footer{font-size:8px;color:#647080;text-align:left;margin-top:12px;padding-top:7px;border-top:1px solid #e1e6ed;
-    font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:space-between;}
+  .pr-footer{position:fixed;left:0;right:0;bottom:-15mm;box-sizing:border-box;
+    font-size:8px;color:#647080;text-align:center;margin:0;padding:7px 0 0;
+    border-top:1px solid #d7e0eb;background:#fff !important;
+    font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:space-between;gap:12px;}
+  .pr-footer strong{color:#17365d;font-weight:800;}
+  .pr-footer span:first-child{color:#17365d;font-weight:700;}
 
 
 }
@@ -862,7 +872,7 @@ function buildPrintHTML(){
       ⚠️ Ajustado: divergência identificada e ajustada no sistema de estoque.<br>
       ❓ Sem cadastro: item sem cadastro adequado no sistema; ocorrência sinalizada.
     </div>
-    <div class="pr-footer"><span>Acurácia de Estoque • Relatório interno</span><span>Gerado em ${geradoEm}</span></div>
+    <div class="pr-footer"><span>DESENVOLVIDO POR <strong>PATRICK BRAUN</strong> E <strong>MARSON MATHEUS</strong></span><span>Gerado em ${geradoEm}</span></div>
   `;
 }
 
